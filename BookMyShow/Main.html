@@ -1,0 +1,54 @@
+<html>
+<link rel="stylesheet" href="MainStyle.css">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="navbar">
+        <p id="logo">CINEPEEDIKA</p>
+        <a href="Main.html"><p id="homel">Home</p></a>
+        <p id="moviesl">Movies</p>
+        <div class="SearchBar">
+                <input class="searchbar" type="text" placeholder="Search Movies">
+                <input class="search" type="image" src="Search.png">
+        </div>
+        <a href="animatedlp.html" class="signin" type="button"><p id="slp">Login</p></a>
+    </div>
+</head>
+<body>
+<div class="MovieSlide">
+    <img id="pic" src="premeluside.png">
+    <script>
+        const im = ["premeluside.png","manjamalaboysside.png","bramaside.png","varshamside.png","Adhuside.png","aveshamside.png","duneside.png","secrethomeSide.png","Shaitaanside.png","BadeMiyanChoteMiyanSide.png"];
+        let c = 0;
+
+        function nextimg() {
+            if (c >= im.length) {
+                c = 0;
+            }
+            document.getElementById("pic").src = im[c];
+            c = c + 1;
+            setTimeout(nextimg, 3000);
+        }
+
+        nextimg();
+    </script>
+    </div>
+
+<div class="sidep">
+    <a href="Main.html"><img id="home" src="home.png"></a>
+    <img id="popular" src="flame.png">
+    <img id="movies" src="videocam.png">
+    <img id="info" src="information-circle.png">
+</div>
+<p id="popl">Popular Choices</p> 
+<a href="MovieSelect.html?c=0"><img class="poster" id="m1" src="premalu.png"></a>
+<a href="MovieSelect.html?c=1"><img class="poster" id="m2" src="manjamalaboys.png"></a>
+<a href="MovieSelect.html?c=2"><img class="poster" id="m3" src="brama.png"></a>
+<a href="MovieSelect.html?c=3"><img class="poster" id="m4" src="varsham.png"></a>
+<a href="MovieSelect.html?c=4"><img clas="poster" id="m5" src="GoatLife.png"></a>
+<a href="MovieSelect.html?c=5"><img class="poster" id="m6" src="avesham.png"></a>
+<a href="MovieSelect.html?c=6"><img class="poster" id="m7" src="dune.png"></a>
+<a href="MovieSelect.html?c=7"><img class="poster" id="m8" src="SecretHome.png"></a>
+<a href="MovieSelect.html?c=8"><img class="poster" id="m9" src="Shaitan.png"></a>
+<a href="MovieSelect.html?c=9"><img class="poster" id="m10" src="BadeMiyanChoteMiyan.png"></a>
+</body>
+</html>
