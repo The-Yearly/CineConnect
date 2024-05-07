@@ -1,5 +1,10 @@
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color: rgb(30, 29, 29);
+    overflow-x: hidden;
+
 
 }
 .navbar{
@@ -92,15 +97,13 @@ body{
     font-size:35px;
 }
 .poster:hover{
-    transform: scale(1.2);
-    top: 100px;
+    position: absolute;
+    transform: scale(1.15);
     border: 10px solid #252529;
 }
 .poster{
     transition: transform 0.2s;
-    position: relative;
     width: 200px;
-    top:100px;
 
 }
 .sidep{
@@ -115,69 +118,69 @@ body{
 }
 #m1{
     position: absolute;
-    left: 250px;
-    top:560px;
+    left: 20px;
+    top:35px;
     height:300px;
 }
 #m2{
     position: absolute;
-    top:560px;
-    left: 500px;
+    top:35px;
+    left: 270px;
     height: 300px;
 }
 #m3{
     position: absolute;
-    top:560px;
-    left: 750px;
+    top:35px;
+    left: 520px;
     height: 300px;
 }
 #m4{
     position: absolute;
-    top:560px;
-    left: 1000px;
+    top:35px;
+    left: 770px;
     height: 300px;
 }
 #m5{
     position: absolute;
-    top:560px;
-    left: 1250px;
+    top:35px;
+    left: 1020px;
     height: 300px;
 }
 #m6{
     position: absolute;
-    top:920px;
-    left: 250px;
+    top:35px;
+    left: 1270px;
     height: 300px;
 }
 #m7{
     position: absolute;
-    top:920px;
-    left: 500px;
+    top:35px;
+    left: 1520px;
     height: 300px;
 }
 #m8{
     position: absolute;
-    top:920px;
-    left: 750px;
+    top:35px;
+    left: 1770px;
     height: 300px;
 }
 #m9{
     position: absolute;
-    top:920px;
-    left: 1000px;
+    top:35px;
+    left: 2020px;
     height: 300px;
 }
 #m10{
     position: absolute;
-    top:920px;
-    left: 1250px;
+    top:35px;
+    left: 2270px;
     height: 300px;
 }
 #pic{
     position: absolute;
-    width: 64%;
-    height: 400px;
-    left: 360px;
+    width: 70%;
+    height: 450px;
+    left: 250px;
     top:90px;
     border: 15px solid white;
 }
@@ -194,13 +197,22 @@ body{
     top:80px
     
 }
-#popular:hover{
+#popl{
+    position: absolute;
+    top:580px;  
+    color: white;
+    left: 150px;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+
+}
+#populari:hover{
     border-bottom:3px solid white;
     border-radius: 3px;
     border-bottom-width: 4px;
     padding-bottom: 5px;
     }
-#popular{
+#populari{
     position: absolute;
     width: 50px;
     left:13px;
@@ -231,4 +243,167 @@ body{
     left:18px;
     bottom:100px;
 
+}
+.MovieDets{
+    position: absolute;
+    background-color: #0e0e12;
+    width: 96%;
+    height: 70%;
+    left: 70px;
+    overflow: hidden;
+    top:70px;
+} 
+#posterb{
+    width:25.5%;
+    height: 92%;
+    overflow: hidden;
+    border: 20px solid black;
+}
+#sidedes{
+    position:absolute;
+    width:68%;
+    height: 100%;
+    border: 20px solid black;
+    opacity:20%;
+}
+#heading{
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top:0px;
+    right:600px;
+    
+}
+#b{
+    position: absolute;
+    color:white;
+    font-size: 20px;
+    bottom: -10px;
+    left: 45px;
+}
+#Book{
+    position: absolute;
+    color:white;
+    font-size: 20px;
+    bottom:60px;
+    border-radius: 5%;
+    background-color:#ec384d;
+    width: 200px;
+    height: 45px;
+    left: 480px;
+
+}
+.popular{
+    position:absolute;
+	width:85%;
+    left:150px;
+    top:660px;
+	overflow:hidden;
+	scrollbar-color: green;
+	height:380px;
+	white-space:nowrap;
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+#bac{
+    position: absolute;
+    top:830;
+    background-color: rgb(30, 29, 29);
+    left:87px;
+    width: 55px;
+    height: 55px;
+    border: 0px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+#fow{
+    position: absolute;
+    background-color: rgb(30, 29, 29);
+    top:830;
+    right:7px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 0px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+}
+#s1{
+    position: absolute;
+    transition: transform 0.8s ease;
+}
+#s2{
+    position: absolute;
+    transition: transform 0.8s ease;
+}
+#am1{
+    position: absolute;
+    left: 250px;
+    top:560px;
+    height:300px;
+}
+#am2{
+    position: absolute;
+    top:560px;
+    left: 500px;
+    height: 300px;
+}
+#am3{
+    position: absolute;
+    top:560px;
+    left: 750px;
+    height: 300px;
+}
+#am4{
+    position: absolute;
+    top:560px;
+    left: 1000px;
+    height: 300px;
+}
+#am5{
+    position: absolute;
+    top:560px;
+    left: 1250px;
+    height: 300px;
+}
+#am6{
+    position: absolute;
+    top:920px;
+    left: 250px;
+    height: 300px;
+}
+#am7{
+    position: absolute;
+    top:920px;
+    left: 500px;
+    height: 300px;
+}
+#am8{
+    position: absolute;
+    top:920px;
+    left: 750px;
+    height: 300px;
+}
+#am9{
+    position: absolute;
+    top:920px;
+    left: 1000px;
+    height: 300px;
+}
+#am10{
+    position: absolute;
+    top:920px;
+    left: 1250px;
+    height: 300px;
+}
+.amovies{
+    position: absolute;
+    bottom: 1200px;
+    left: -100px;
 }

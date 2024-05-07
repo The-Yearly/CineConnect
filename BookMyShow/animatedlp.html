@@ -11,24 +11,20 @@
 <body>
  <div class="wrapper">
     <nav class="nav">
+        <>
         <div class="nav-logo">
             <p>CINEPEEDIKA</p>
         </div>
-       
+        <a href="Main.html"><p id="home">Home</p></a>
         <div class="nav-button">
             <button class="btn white" id="loginBtn" onclick="login()">Sign In</button>
             <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
         </div>
-        <div class="nav-menu-btn">
-            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
-        </div>
+
     </nav>
 
    
     <div class="form-box">
-        
-
-
         <div class="login-container" id="login">
             <div class="top">
                 <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
@@ -36,11 +32,11 @@
             </div>
             <div class="input-box">
                 <input type="text" class="input-field" placeholder="Username or Email">
-                <i class="bx bx-user"></i>
+                <br><br>
             </div>
             <div class="input-box">
                 <input type="password" class="input-field" placeholder="Password">
-                <i class="bx bx-lock-alt"></i>
+                <br><br>
             </div>
             <div class="input-box">
                 <input type="submit" class="submit" value="Sign In">
@@ -63,20 +59,20 @@
             <div class="two-forms">
                 <div class="input-box">
                     <input type="text" class="input-field" placeholder="Firstname">
-                    <i class="bx bx-user"></i>
+                    <br><br>
                 </div>
                 <div class="input-box">
                     <input type="text" class="input-field" placeholder="Lastname">
-                    <i class="bx bx-user"></i>
+                    <br><br>
                 </div>
             </div>
             <div class="input-box">
                 <input type="text" class="input-field" placeholder="Email">
-                <i class="bx bx-envelope"></i>
+                <br><br>
             </div>
             <div class="input-box">
                 <input type="password" class="input-field" placeholder="Password">
-                <i class="bx bx-lock-alt"></i>
+                <br><br>
             </div>
             <div class="input-box">
                 <input type="submit" class="submit" value="Register">
@@ -93,34 +89,13 @@
         </div>
     </div>
 </div>   
-
-
 <script>
-   
-   function myMenuFunction() {
-    var i = document.getElementById("navMenu");
-
-    if(i.className === "nav-menu") {
-        i.className += " responsive";
-    } else {
-        i.className = "nav-menu";
-    }
-   }
- 
-</script>
-
-<script>
-
-    var a = document.getElementById("loginBtn");
-    var b = document.getElementById("registerBtn");
     var x = document.getElementById("login");
     var y = document.getElementById("register");
 
     function login() {
         x.style.left = "4px";
         y.style.right = "-520px";
-        a.className += " white-btn";
-        b.className = "btn";
         x.style.opacity = 1;
         y.style.opacity = 0;
         document.body.style.background='url("Sign-in page.png")';
@@ -132,8 +107,6 @@
         document.body.style.backgroundSize="cover";
         x.style.left = "-510px";
         y.style.right = "5px";
-        a.className = "btn";
-        b.className += " white-btn";
         x.style.opacity = 0;
         y.style.opacity = 1;
     }

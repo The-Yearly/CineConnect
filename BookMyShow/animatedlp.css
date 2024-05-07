@@ -33,9 +33,11 @@ body{
     z-index: 100;
 }
 .nav-logo p{
+    position: absolute;
     color: white;
     font-size: 25px;
     font-weight: 600;
+    left: 100px;
 }
 
 
@@ -228,4 +230,18 @@ header{
         flex-direction: column;
         gap: 0;
     }
+}
+#home:hover{
+    border-bottom:3px solid white;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+}
+#home{
+    position: fixed;
+    left: 350px;
+    padding: 0px;
+    top:35px;
+    line-height: 30px;
+    font-size: 22px;
+    color: white;
 }

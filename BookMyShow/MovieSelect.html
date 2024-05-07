@@ -1,5 +1,5 @@
 <html>
-<link rel="stylesheet" href="MovieStyle.css">
+<link rel="stylesheet" href="MainStyle.css">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -7,7 +7,7 @@
     <div class="navbar">
         <p id="logo">CINEPEEDIKA</p>
         <a href="Main.html"><p id="homel">Home</p></a>
-        <p id="moviesl">Movies</p>
+        <a href="Movies.html"><p id="moviesl">Movies</p></a>
         <div class="SearchBar">
                 <input class="searchbar" type="text" placeholder="Search Movies">
                 <input class="search" type="image" src="Search.png">
@@ -16,26 +16,26 @@
     </div>
 
 <div class="sidep">
-    <a href="Main.html"><img id="home" src="home.png"><a>
-    <img id="popular" src="flame.png">
-    <img id="movies" src="videocam.png">
+    <a href="Main.html"><img id="home" src="home.png"></a>
+    <a href="Main.html#popular"><img id="populari" src="flame.png"></a>
+    <a href="Movies.html"><img id="movies" src="videocam.png"></a>
     <img id="info" src="information-circle.png">
 </div>
 <div class="MovieDets">
-    <img id="poster" src="avesham.png">
+    <img id="posterb" src="avesham.png">
     <img id="sidedes" src="aveshamside.png">
     <p id="Heading"><u>Bramayugam</u></p>
     <a href="Seats.html" id="Book"><p id="b">Book Tickets</p></a>
 </div>
 <script>
-    let names=["Premalu","Manjumal Boys","Bramayugam","varshangalkku shesham","The Goat Life","Aavesham","Dune Part II","Secret Home","Shaitaan","BadeMiyanChoteMiyan"];
+    let names=["Premalu","Manjumal Boys","Bramayugam","varshangalkku shesham","The Goat Life","Aavesham","Dune Part II","Nadikar","Shaitaan","Malayalee From India"];
     let ims = ["premeluside.png","manjamalaboysside.png","bramaside.png","varshamside.png","Adhuside.png","aveshamside.png","duneside.png","secrethomeSide.png","Shaitaanside.png","BadeMiyanChoteMiyanSide.png"];
     let im=["premalu.png","manjamalaboys.png","brama.png","varsham.png","GoatLife.png","avesham.png","dune.png","secrethome.png","Shaitan.png","BadeMiyanChoteMiyan.png"];
     const urlParams = new URLSearchParams(window.location.search);
     const index = urlParams.get('c'); 
     document.getElementById("Heading").innerHTML=names[index];
     document.getElementById("sidedes").src=ims[index];
-    document.getElementById("poster").src=im[index];
+    document.getElementById("posterb").src=im[index];
 </script>
 </body>
 </html>
