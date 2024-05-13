@@ -1,4 +1,5 @@
 let seats = [];
+let booked=["seat-6"];
 function addseat(seat){
     var seatid = seat.id;
     let seato = document.getElementById(seatid);
