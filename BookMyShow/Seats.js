@@ -11,5 +11,5 @@ function addseat(seat){
     }
 }
 function Book(){
-        alert(seats);
+        alert(seats+" is booked");
 }

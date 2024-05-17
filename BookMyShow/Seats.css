@@ -783,38 +783,37 @@ h1{
    
 }
 
-
 .seat-map {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-     
-}
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+         
+    }
 .seat{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 .seating {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 .seato {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 .map {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 .set {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 #one {
     color:white;
 }
@@ -860,4 +859,32 @@ input[type="checkbox"]:checked + label {
     position: absolute;
     bottom:100px;
     left:100px;
+}
+@media screen and (max-width: 600px) {
+    .seat1, .seat2, .seat3, .seat4, .seat5, .seat6,
+    .seat7, .seat8, .seat9, .seat10, .seat11, .seat12,
+    .seat13, .seat14, .seat15, .seat16, .seat17, .seat18,
+    .seat19, .seat20, .seat21, .seat22, .seat23, .seat24,
+    .seat25, .seat26, .seat27, .seat28, .seat29, .seat30,
+    .seat31, .seat32, .seat33, .seat34, .seat35, .seat36,
+    .seat37, .seat38, .seat39, .seat40, .seat41, .seat42,
+    .seat43, .seat44, .seat45, .seat46, .seat47, .seat48,
+    .seat49, .seat50, .seat51, .seat52, .seat53, .seat54,
+    .seat55, .seat56, .seat57, .seat58, .seat59, .seat60,
+    .seat61, .seat62, .seat63, .seat64, .seat65, .seat66,
+    .seat67, .seat68, .seat69, .seat70, .seat71, .seat72,
+    .seat73, .seat74, .seat75, .seat76, .seat77, .seat78,
+    .seat79, .seat80, .seat81, .seat82, .seat83, .seat84,
+    .seat85, .seat86, .seat87, .seat88, .seat89, .seat90,
+    .seat91, .seat92, .seat93, .seat94, .seat95, .seat96,
+    .seat97, .seat98, .seat99, .seat100, .seat101, .seat102,
+    .seat103, .seat104, .seat105, .seat106, .seat107, .seat108,
+    .seat109, .seat110, .seat111, .seat112, .seat113, .seat114,
+    .seat115, .seat116, .seat117, .seat118, .seat119, .seat120,
+    .seat121, .seat122, .seat123, .seat124, .seat125, .seat126 {
+        width: 50px;
+        height: 50px;
+        border-radius: 1px solid;
+        position: relative;
+    }
 }
