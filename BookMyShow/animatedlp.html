@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="animatedlp.css">
-    <title> Login & Registration</title>
+    <title>Login & Registration</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
  <div class="wrapper">
     <nav class="nav">
-        <>
         <div class="nav-logo">
             <p>CINEPEEDIKA</p>
         </div>
@@ -20,10 +24,7 @@
             <button class="btn white" id="loginBtn" onclick="login()">Sign In</button>
             <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
         </div>
-
     </nav>
-
-   
     <div class="form-box">
         <div class="login-container" id="login">
             <div class="top">
@@ -31,15 +32,17 @@
                 <header>Login</header>
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Username or Email">
+                <input type="text" class="input-field" id="login-username" placeholder="Username or Email">
+                <span id="login-username-error" class="error"></span>
                 <br><br>
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password">
+                <input type="password" class="input-field" id="login-password" placeholder="Password">
+                <span id="login-password-error" class="error"></span>
                 <br><br>
             </div>
             <div class="input-box">
-                <input type="submit" class="submit" value="Sign In">
+                <input type="submit" class="submit" value="Sign In" onclick="validateLogin(event)">
             </div>
             <div class="two-col">
                 <div class="one">
@@ -58,7 +61,7 @@
             </div>
             <div class="two-forms">
                 <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Firstname">
+                    <input type="text" class="input-field" id="fname" placeholder="Firstname">
                     <br><br>
                 </div>
                 <div class="input-box">
@@ -67,15 +70,17 @@
                 </div>
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Email">
+                <input type="text" class="input-field" id="register-email" placeholder="Email">
+                <span id="register-email-error" class="error"></span>
                 <br><br>
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password">
+                <input type="password" class="input-field" id="register-password" placeholder="Password">
+                <span id="register-password-error" class="error"></span>
                 <br><br>
             </div>
             <div class="input-box">
-                <input type="submit" class="submit" value="Register">
+                <input type="submit" class="submit" value="Register" onclick="validateRegister(event)">
             </div>
             <div class="two-col">
                 <div class="one">
@@ -88,7 +93,7 @@
             </div>
         </div>
     </div>
-</div>   
+</div>
 <script>
     var x = document.getElementById("login");
     var y = document.getElementById("register");
@@ -98,20 +103,64 @@
         y.style.right = "-520px";
         x.style.opacity = 1;
         y.style.opacity = 0;
-        document.body.style.background='url("Sign-in page.png")';
-        document.body.style.backgroundSize="cover";
+        document.body.style.background = 'url("2.png")';
+        document.body.style.backgroundSize = "cover";
     }
 
     function register() {
-        document.body.style.background='url("Sign-up page.png")';
-        document.body.style.backgroundSize="cover";
+        document.body.style.background = 'url("1.png")';
+        document.body.style.backgroundSize = "cover";
         x.style.left = "-510px";
         y.style.right = "5px";
         x.style.opacity = 0;
         y.style.opacity = 1;
     }
 
-</script>
+    function validateLogin(event) {
+        event.preventDefault();
+        var username = document.getElementById("login-username").value;
+        var password = document.getElementById("login-password").value;
+        var usernameError = document.getElementById("login-username-error");
+        var passwordError = document.getElementById("login-password-error");
 
+        usernameError.textContent = "";
+        passwordError.textContent = "";
+
+        if (username === "") {
+            usernameError.textContent = "Username or Email is required.";
+        }
+        if (password === "") {
+            passwordError.textContent = "Password is required.";
+        }
+
+        if (username !== "" && password !== "") {
+            // Perform further validation or submit the form
+            // Example: submit the form or make an AJAX request
+            // document.getElementById("login-form").submit();
+        }
+    }
+
+    function validateRegister(event) {
+        event.preventDefault();
+        var email = document.getElementById("register-email").value;
+        var password = document.getElementById("register-password").value;
+        var emailError = document.getElementById("register-email-error");
+        var passwordError = document.getElementById("register-password-error");
+
+        emailError.textContent = "";
+        passwordError.textContent = "";
+
+        if (email === "") {
+            emailError.textContent = "Email is required.";
+        }
+        if (password === "") {
+            passwordError.textContent = "Password is required.";
+        }
+
+        if (email !== "" && password !== "") {
+          
+        }
+    }
+</script>
 </body>
 </html>

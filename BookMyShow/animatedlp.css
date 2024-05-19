@@ -1,4 +1,3 @@
-/* POPPINS FONT */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 *{  
@@ -8,7 +7,7 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background: url("Sign-in page.png");
+    background: url("2.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
