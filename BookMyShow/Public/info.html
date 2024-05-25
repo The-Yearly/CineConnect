@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mvinfo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class="navbar">
+        <p id="logo">CINEPEEDIKA</p>
+        <a href="Main.html"><p id="homel">Home</p></a>
+        <a href="Movies.html"><p id="moviesl">Movies</p></a>
+        <div class="SearchBar">
+                <input id="searchbar" type="text" placeholder="Search Movies" onkeyup="searchs(this.value)">
+                <img id="search" src="Search.png" onclick="search()">
+                <div id="searches"></div>
+            
+        </div>
+        <a href="animatedlp.html" id="signin"><p id="slp">Log Out</p></a>
+    </div>
+    <div class="content">
+        <div class="about-us">
+            <h2>ABOUT US</h2>
+            <p>
+                Welcome to CINEPEEDIKA, your number one source for all things movies. We're dedicated to giving you the very best of movie ticket reservation services, with a focus on reliability, customer service, and uniqueness.
+            </p>
+            <p>
+                Our passion for providing the best user experience drove us to start this business, and gave us the impetus to turn hard work and inspiration into a booming online service.
+            </p>
+            <p>
+                We now serve customers all over the country and are thrilled to be a part of the film industry wing of the entertainment sector. We hope you enjoy our services as much as we enjoy offering them to you.
+            </p>
+            <p>
+                Crafted with love,<br>
+                <strong>Team CinePeedika</strong>
+            </p>
+        </div>
+
+        <div class="reviews">
+            <h2 class="reviews-heading">THE BUZZ AROUND US...</h2>
+            <div class="review-box">
+                <div class="review">
+                    <p>"CINEPEEDIKA offers a seamless movie ticket reservation experience, making it a must-visit for every cinephile."</p>
+                    <strong>- The Times of India:</strong>
+                </div>
+            </div>
+            <div class="review-box">
+                <div class="review">
+                    <p>"With CINEPEEDIKA, booking movie tickets has never been easier. A user-friendly platform for all movie buffs."</p>
+                    <strong>- NDTV Movies:</strong>
+                </div>
+            </div>
+            <div class="review-box">
+                <div class="review">
+                    <p>"CINEPEEDIKA revolutionizes online movie ticket booking, delivering convenience at your fingertips."</p>
+                    <strong>- Hindustan Times:</strong>
+                </div>
+            </div>
+            <div class="review-box">
+                <div class="review">
+                    <p>"Experience the future of movie ticket reservations with CINEPEEDIKA. A game-changer in the entertainment industry."</p>
+                    <strong>- India Today:</strong>
+                </div>
+            </div>
+        </div>
+    
+        <h2>THE CinePeedika TEAM</h2>
+        <div class="team-section">
+            <div class="team-member">
+                <img src="https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.webp" alt="Member 1">
+                <p>John Yohan Skaria</p>
+            </div>
+            <div class="team-member">
+                <img src="https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.webp" alt="Member 2">
+                <p>Hari Sankar A</p>
+            </div>
+            <div class="team-member">
+                <img src="https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.webp" alt="Member 3">
+                <p>Abhinav Dileep</p>
+            </div>
+            <div class="team-member">
+                <img src="https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.webp" alt="Member 4">
+                <p>Parthiv M</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <footer class="footer">
+        <div class="contact-information">
+            <h2>CONTACT INFORMATION</h2>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:support@cinepeedika.com">support@cinepeedika.com</a></li>
+            </ul>
+        </div>
+               
+        <div class="social-media">
+            <ul>
+                <li>
+                    <a href="https://www.facebook.com/cinepeedika" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com/cinepeedika" target="_blank">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/cinepeedika" target="_blank">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/cinepeedika" target="_blank">
+                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </footer>
+</body>
+<script>
+    function searchs(search){
+            var c=document.getElementById("searches");
+            async function getname(search){
+                if(search.length==0){
+                    search="";
+                    console.log(search.length);
+                    c.textContent="";
+                }
+                else{
+                    var name=await fetch("/api/names",{
+                        method:"POST",
+                        headers:{
+                            "Content-Type":"text/plain"
+                        },
+                        body:search,
+                    }); 
+                    var s=await name.json();
+                    var s2=s.join("\n")
+                    c.textContent=s2;
+
+                }
+            }
+            getname(search);
+    }
+    function search(){
+            var searchb=document.getElementById("searchbar");
+            if(searchb.value==''){
+                alert("En")
+            }
+            else{
+                async function getresult(){
+                    var idj= await fetch("/api/searchbar",{
+                        method:"POST",
+                        headers:{
+                            "content-Type":"text/plain",
+                        },
+                        body:searchb.value
+                    });
+                    var id=await idj.json();
+                    if(id!="notfound"){
+                        id-=1;
+                        location.href="MovieSelect.html?c="+id;
+                    }    
+                    else{
+                        alert("Not Found"); 
+                    }
+                }
+                getresult();
+            }
+        }
+</script>
+</html>

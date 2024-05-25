@@ -1,0 +1,107 @@
+<html>
+<link rel="stylesheet" href="MainStyle.css">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="navbar">
+        <p id="logo">CINEPEEDIKA</p>
+        <a href="Main.html"><p id="homel">Home</p></a>
+        <a href="Movies.html"><p id="moviesl">Movies</p></a>
+        <div class="SearchBar">
+                <input id="searchbar" type="text" placeholder="Search Movies" onkeyup="searchs(this.value)">
+                <img id="search" src="Search.png" onclick="search()">
+                <div id="searches"></div>
+            
+        </div>
+        <a href="animatedlp.html" id="signin"><p id="slp">Log Out</p></a>
+    </div>
+
+<div class="sidep">
+    <a href="Main.html"><img id="home" src="home.png"></a>
+    <a href="Main.html#popular"><img id="populari" src="flame.png"></a>
+    <a href="Movies.html"><img id="movies" src="videocam.png"></a>
+    <a href="info.html"><img id="info" src="information-circle.png"></a>
+</div>
+<div class="MovieDets">
+    <img id="posterb">
+    <img id="sidedes">
+    <p id="Heading"></p>
+    <div class="descbox">
+        <p id="desc"></p>
+    </div>
+    <a id="Book"><p id="b">Book Tickets</p></a>
+</div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const index = urlParams.get('c'); 
+    let moviedets;
+    async function getdets(){
+        var dets=await fetch("/api/moviedets",{
+            method:"POST",
+            headers:{
+                "Content-Type":"text/plain"   
+            },
+            body:index
+        });
+        moviedets=await dets.json();
+        document.getElementById("Heading").innerHTML=moviedets[1];
+        document.getElementById("sidedes").src=moviedets[3];
+        document.getElementById("posterb").src=moviedets[2];
+        document.getElementById("desc").innerHTML=moviedets[4];
+        document.getElementById("Book").href="seats.html?c="+moviedets[0];
+    }
+    getdets();
+    function search(){
+            var searchb=document.getElementById("searchbar");
+            if(searchb.value==''){
+                alert("En")
+            }
+            else{
+                async function getresult(){
+                    var idj= await fetch("/api/searchbar",{
+                        method:"POST",
+                        headers:{
+                            "content-Type":"text/plain",
+                        },
+                        body:searchb.value
+                    });
+                    var id=await idj.json();
+                    if(id!="notfound"){
+                        id-=1;
+                        location.href="MovieSelect.html?c="+id;
+                    }    
+                    else{
+                        alert("Not Found"); 
+                    }
+                }
+                getresult();
+            }
+        }
+        function searchs(search){
+            var c=document.getElementById("searches");
+            async function getname(search){
+                if(search.length==0){
+                    search="";
+                    console.log(search.length);
+                    c.textContent="";
+                }
+                else{
+                    var name=await fetch("/api/names",{
+                        method:"POST",
+                        headers:{
+                            "Content-Type":"text/plain"
+                        },
+                        body:search,
+                    }); 
+                    var s=await name.json();
+                    var s2=s.join("\n")
+                    c.textContent=s2;
+
+                }
+            }
+            getname(search);
+    }
+</script>
+</body>
+</html>

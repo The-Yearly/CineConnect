@@ -1,0 +1,101 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="MainStyle.css">
+    <div class="navbar">
+        <p id="logo">CINEPEEDIKA</p>
+        <a href="admin.html"><p id="homel">Home</p></a>
+        <a href="Movies.html"><p id="moviesl">Movies</p></a>
+        <div class="SearchBar">
+            <input id="searchbar" type="text" placeholder="Search Movies" onkeyup="searchs(this.value)">
+            <img id="search" src="Search.png" onclick="search()">
+            <div id="searches"></div>
+    </div>
+        <a href="animatedlp.html" id="signin" type="button"><p id="slp">Log Out</p></a>
+    </div>
+</head>
+<body>
+    <div class="sidep">
+        <a href="admin.html"><img id="home" src="home.png"></a>
+        <img id="info" src="information-circle.png">
+    </div>
+    <div class="container">
+        <div class="left-sidebar">
+            <div class="form-group">
+                <label for="number">Select the required movie:</label>
+                <select id="number" name="number" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-container">
+            <h2>Upload Your Information</h2>
+            <div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="na" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Movie Description</label>
+                    <input type="text" id="desb"required>
+                </div>
+                <div class="form-group">
+                    <label for="image1">Upload Image 1:</label>
+                    <input type="file" id="image1" name="image1" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label for="image2">Upload Image 2:</label>
+                    <input type="file" id="image2" name="image2" accept="image/*" required>
+                </div>
+                <button type="submit" onclick="a()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function a() {
+            fetch("/api/adminv",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({"id":number.value,"name":na.value,"desc":desb.value,"im":image1.value,"side":image2.value})
+            });
+        }
+        function searchs(search){
+            var c=document.getElementById("searches");
+            async function getname(search){
+                if(search.length==0){
+                    search="";
+                    console.log(search.length);
+                    c.textContent="";
+                }
+                else{
+                    var name=await fetch("/api/names",{
+                        method:"POST",
+                        headers:{
+                            "Content-Type":"text/plain"
+                        },
+                        body:search,
+                    }); 
+                    var s=await name.json();
+                    var s2=s.join("\n")
+                    c.textContent=s2;
+
+                }
+            }
+            getname(search);
+    }
+    </script>
+</body>
+</html>

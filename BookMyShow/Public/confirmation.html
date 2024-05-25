@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmation - CineConnect</title>
+    <link rel="stylesheet" href="confirm.css">
+    <script src="cfmscript.js" defer></script>
+</head>
+<body>
+    <div class="navbar">
+        <p id="logo">CINEPEEDIKA</p>
+        <a href="Main.html"><p id="homel">Home</p></a>
+        <p id="moviesl">Movies</p>
+        <div class="SearchBar">
+            <input id="searchbar" type="text" placeholder="Search Movies">
+            <img id="search" src="Search.png" onclick="search()">
+        </div>
+    </div>
+        <a href="animatedlp.html" class="signin" type="button"><p id="slp">Login</p></a>
+    </div>
+
+    <div class="sidep">
+        <a href="Main.html"><img id="home" src="home.png"></a>
+        <img id="popular" src="flame.png">
+        <img id="movies" src="videocam.png">
+        <img id="info" src="information-circle.png">
+    </div>
+
+
+    <div class="confirmation-content">
+        <div class="confirmation-message">
+            <h2>Booking Confirmed!</h2>
+            <p>Congratulations! Your movie ticket has been successfully booked with CineConnect.</p>
+            <p>An email with your ticket details has been sent to your registered email address. Please check your inbox for confirmation.</p>
+            <p>We hope you enjoy your movie experience with us!</p>
+            <a href="Main.html" class="back-home">Back to Home</a>
+        </div>
+        <canvas id="confetti"></canvas>
+    </div>
+    <script src="confetti.js" defer></script>
+</body>
+</html>

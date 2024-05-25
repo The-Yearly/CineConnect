@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="animatedlp.css">
+    <title>Login & Registration</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+ <div class="wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <p>CINEPEEDIKA</p>
+        </div>
+        <div class="nav-button">
+            <button class="btn white" id="loginBtn" onclick="login()">Sign In</button>
+            <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+        </div>
+    </nav>
+    <div class="form-box">
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
+                <header>Login</header>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" id="login-username" placeholder="Username">
+                <span id="login-username-error" class="error"></span>
+                <br><br>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" id="login-password" placeholder="Password">
+                <span id="login-password-error" class="error"></span>
+                <br><br>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Sign In" onclick="validateLogin()">
+            </div>
+        </div>
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>Have an account? <a href="#" onclick="login()">Login</a></span>
+                <header>Sign Up</header>
+            </div>
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" id="fname" placeholder="Firstname">
+                    <span id="register-fname-error" class="error"></span>
+                    <br><br>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" id="lname" placeholder="Lastname">
+                    <span id="register-lname-error" class="error"></span>
+                    <br><br>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" id="register-username" placeholder="UserName">
+                <span id="register-username-error" class="error"></span>
+                <br><br>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" id="register-password" placeholder="Password">
+                <span id="register-password-error" class="error"></span>
+                <br><br>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Register" onclick="validateRegister()">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+
+    function login() {
+        x.style.left = "4px";
+        y.style.right = "-520px";
+        x.style.opacity = 1;
+        y.style.opacity = 0;
+        document.body.style.background = 'url("Sign-In page.png")';
+        document.body.style.backgroundSize = "cover";
+    }
+
+    function register() {
+        document.body.style.background = 'url("Sign-up page.png")';
+        document.body.style.backgroundSize = "cover";
+        x.style.left = "-510px";
+        y.style.right = "5px";
+        x.style.opacity = 0;
+        y.style.opacity = 1;
+    }
+
+    function validateLogin() {
+        var username = document.getElementById("login-username").value;
+        var password = document.getElementById("login-password").value;
+        var usernameError = document.getElementById("login-username-error");
+        var passwordError = document.getElementById("login-password-error");
+
+        usernameError.textContent = "";
+        passwordError.textContent = "";
+
+        if (username === "") {
+            usernameError.textContent = "Username or Email is required.";
+        }
+        if (password === "") {
+            passwordError.textContent = "Password is required.";
+        }
+
+        if (username !== "" && password !== "") {
+            fetch("/api/unames").then(res=>res.json()).then(unames=>{
+                if(unames.includes(username)==false){
+                    usernameError.textContent = "Username Does Not Exists";
+                    document.getElementById("register-username").value='';
+                }
+                else{
+                    async function checkpass(){
+                    var pass=await fetch("/api/checkpass",{
+                        method:"POST",
+                        headers:{
+                            "Content-Type":"application/json"
+                        },
+                        body:JSON.stringify({"usern":username}),
+                    })
+                    var sqpassword=await pass.json();
+                    if (password!=sqpassword){
+                        passwordError.textContent = "Invalid Password";
+                        document.getElementById("register-password").value='';
+                    }
+                    else{
+                        if(username!="admin"){
+                        window.location.replace('Main.html');
+                    }else{
+                        window.location.replace("admin.html");
+                    }
+                    }
+                }
+                checkpass();
+            }
+            });
+        }
+    }
+
+    function validateRegister() {
+        var fname=document.getElementById("fname").value;
+        var lname=document.getElementById("lname").value;
+        var username = document.getElementById("register-username").value;
+        var password = document.getElementById("register-password").value;
+        var usernameError = document.getElementById("register-username-error");
+        var passwordError = document.getElementById("register-password-error");
+        var fnameError = document.getElementById("register-fname-error");
+        var lnameError = document.getElementById("register-lname-error");  
+        usernameError.textContent = "";
+        passwordError.textContent = "";
+        fnameError.textContent = "";
+        lnameError.textContent = "";
+        if (fname === "") {
+            fnameError.textContent = "First Name is required.";
+        }
+        if (lname === "") {
+            lnameError.textContent = "Last Name is required.";
+        }
+        if (username === "") {
+            usernameError.textContent = "Username is required.";
+        }
+        else if(username.length<=5){
+            usernameError.textContent="UserName is too Short";
+        }
+        else if(username.length>20){
+            usernameError.textContent="UserName is too Long";
+        }
+        if (password === "") {
+            passwordError.textContent = "Password is required.";
+        }
+        else if (password.length<=3){
+            passwordError.textContent="Password is too short";
+        }
+        else if (password.length>20){
+            passwordError.textContent="Password is too Long";
+        }
+        if (username.length<20 && password.length>=3 && username.length>3 & password.length<20 && fname!=="" && lname!==""){
+            alert("ssd");
+            fetch("/api/unames").then(res=>res.json()).then(unames=>{
+                if(unames.includes(username)){
+                    usernameError.textContent = "Username Already Exists";
+                    document.getElementById("register-username").value='';
+                }else{
+                    fetch("/api/adduser",{
+                        method:"POST",
+                        headers:{
+                            "Content-Type":"application/json"
+                        },
+                        body:JSON.stringify({"usern":username,"firstn":fname,"lastn":lname,"pass":password}),
+                    });
+                    window.location.replace('Main.html');
+                }
+            });
+        }
+    }
+</script>
+</body>
+</html>

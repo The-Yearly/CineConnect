@@ -1,0 +1,323 @@
+body {
+    background-color: rgb(30, 29, 29);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    position: fixed;
+    left: 0px;
+    top: 0%;
+    overflow: hidden;
+    width: 1480px;
+    height: 70px;
+    background-color: black;
+    z-index: 9999;
+}
+
+#homel:hover, #moviesl:hover {
+    border-bottom: 3px solid white;
+    border-radius: 3px;
+    border-bottom-width: 4px;
+    padding-bottom: 5px;
+}
+
+#homel {
+    position: absolute;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    top: -3px;
+    left: 300px;
+}
+
+#moviesl {
+    position: absolute;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    top: -3px;
+    left: 390px;
+}
+
+.searchbar {
+    position: relative;
+    width: 500px;
+    border: 0px;
+    height: 27px;
+    border-radius: 3px;
+}
+
+.search {
+    position: relative;
+    background-color: white;
+    width: 27px;
+    right: 85px;
+    border: 0px;
+    top: 12px;
+    border-radius: 2px;
+}
+
+.SearchBar {
+    position: absolute;
+    right: 60px;
+    top: 12px;
+}
+
+#slp {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    color: white;
+    left: 23px;
+    top: 5px;
+}
+
+.signin:hover {
+    background-color: white;
+}
+
+.signin {
+    position: absolute;
+    background-color: black;
+    border: 0px;
+    right: 0px;
+    color: white;
+    top: 0px;
+    height: 70px;
+    width: 100px;
+    font-size: 20px;
+}
+
+#logo {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+}
+
+.MovieDets {
+    position: absolute;
+    background-color: #0e0e12;
+    width: 96%;
+    height: 70%;
+    left: 70px;
+    overflow: hidden;
+    top: 70px;
+}
+
+.sidep {
+    position: fixed;
+    left: 0px;
+    top: 70px;
+    width: 5%;
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+p.NowShowing {
+    position: fixed;
+    font-size: 26px;
+    left: 40px;
+}
+
+list.Movies {
+    position: fixed;
+    top: 130px;
+    font-size: 20px;
+    left: -22px;
+}
+
+#poster {
+    width: 25.5%;
+    height: 92%;
+    overflow: hidden;
+    border: 20px solid black;
+}
+
+#sidedes {
+    position: absolute;
+    width: 68%;
+    height: 100%;
+    border: 20px solid black;
+    opacity: 20%;
+}
+
+#heading {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 0px;
+    right: 600px;
+}
+
+#b {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    bottom: -10px;
+    left: 45px;
+}
+
+#Book {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    bottom: 60px;
+    border-radius: 5%;
+    background-color: #ec384d;
+    width: 200px;
+    height: 45px;
+    left: 480px;
+}
+
+#home:hover, #popular:hover, #movies:hover, #info:hover {
+    border-bottom: 3px solid white;
+    border-radius: 3px;
+    border-bottom-width: 4px;
+    padding-bottom: 5px;
+}
+
+#home {
+    position: absolute;
+    width: 40px;
+    left: 15px;
+    top: 80px;
+}
+
+#popular {
+    position: absolute;
+    width: 50px;
+    left: 13px;
+    top: 160px;
+}
+
+#movies {
+    position: absolute;
+    width: 40px;
+    left: 18px;
+    top: 240px;
+}
+
+#info {
+    position: absolute;
+    width: 40px;
+    left: 18px;
+    bottom: 100px;
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+h2 {
+    color: #c8c6c6;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #898989;
+}
+
+.footer {
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer ul li a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer .social-media img {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+.team-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.reviews-heading {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.review-box {
+    width: calc(50% - 10px); /* Subtracting the margin-right width */
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.review {
+    margin: 0;
+}
+
+/* Adding a margin-right for gap between side-by-side boxes */
+.review-box:nth-child(odd) {
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .review-box {
+        width: 100%;
+    }
+
+    /* Remove margin-right on smaller screens */
+    .review-box:nth-child(odd) {
+        margin-right: 0;
+    }
+}
